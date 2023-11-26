@@ -1,13 +1,15 @@
-package FactoryRequest;
+package factoryRequest;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class RequestInfo {
     private String url;
     private String body;
-    private Map<String,String> header;
-
-
+    private Map<String, String> header;
+    public RequestInfo(){
+        this.header = new HashMap<>();
+    }
     public String getUrl() {
         return url;
     }
@@ -27,6 +29,11 @@ public class RequestInfo {
 
     public RequestInfo setBody(String body) {
         this.body = body;
+        return this;
+    }
+
+    public RequestInfo setHeader(String key, String value) {
+        this.header.put(key, value);
         return this;
     }
 }

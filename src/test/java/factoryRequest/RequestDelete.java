@@ -1,4 +1,4 @@
-package FactoryRequest;
+package factoryRequest;
 
 import io.restassured.response.Response;
 
@@ -8,13 +8,13 @@ public class RequestDelete implements IRequest {
 
     @Override
     public Response send(RequestInfo requestInfo) {
-        Response response =  given()
-                .headers(requestInfo.getHeader())
-                .log().all()
+        Response response =
+                given()
+                        .headers(requestInfo.getHeader())
+                        .log().all()
                 .when()
-                .delete(requestInfo.getUrl());
+                        .delete(requestInfo.getUrl());
         response.then().log().all();
-
         return response;
     }
 

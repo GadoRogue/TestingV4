@@ -1,4 +1,4 @@
-package FactoryRequest;
+package factoryRequest;
 
 public class FactoryRequest {
     public static IRequest make(String type){
@@ -6,6 +6,7 @@ public class FactoryRequest {
         switch (type.toLowerCase()){
             case "get":
                 request = new RequestGET();
+                break;
             case "post":
                 request = new RequestPost();
                 break;
@@ -16,8 +17,11 @@ public class FactoryRequest {
                 request = new RequestDelete();
                 break;
             default:
-                request = new RequestGET();
-                break;
+                try {
+                    throw new Exception("Method not implemented");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
         }
         return request;
     }
